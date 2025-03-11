@@ -50,7 +50,7 @@ z = ∑(α_t * x_t)
 
 ---
 
-### 📌 Verification Scheme  
+### Verification Scheme  
 
 The Euclidean distance between keystroke embeddings is calculated as:  
 
@@ -62,3 +62,23 @@ where a **lower distance** indicates a **higher similarity**. A threshold **t** 
 
 - If **\( d < t \)** → **Genuine User**  
 - If **\( d ≥ t \)** → **Impostor**  
+
+<a id="results"></a>
+##  Results  
+In this section, we present the empirical findings of our keystroke authentication experiments under four primary loss functions: Contrastive Loss, Euclidean
+Triplet Loss, Manhattan Triplet Loss, and Filtered Triplet Loss. We evaluate two architectures:
+– TypeNet: The baseline recurrent model for keystroke dynamics.
+– TypePlus: The enhanced variant that introduces a learnable embedding layer for keycodes, bidirectionality, and attention-based pooling.
+
+| Model  | Loss Function            | EER (%)  |  
+|--------|--------------------------|----------|  
+| TypeNet | Contrastive Loss         | 10.56%   |  
+| TypeNet | Manhattan Triplet Loss   | 6.49%    | 
+| TypeNet | Euclidean Triplet Loss   | 6.28%    |
+| TypeNet | Filtered Triplet Loss    | 6.52%    |
+| TypePlus | Contrastive Loss        | 5.50%    |  
+| TypePlus | Manhattan Triplet Loss  | 2.93%    |  
+| TypePlus | Euclidean Triplet Loss  | 2.90%    |  
+| **TypePlus** | **Filtered Triplet Loss** | **2.86%** |  
+
+TypePlus significantly outperforms previous architectures, demonstrating the effectiveness of **attention pooling** and **loss function optimization**.
