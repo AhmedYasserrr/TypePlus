@@ -38,25 +38,27 @@ After preprocessing, we obtain five features: keycodes and four temporal feature
 
 A critical component of the architecture is the Attention Pooling mechanism, which enables the model to dynamically focus on the most relevant keystroke features. This mechanism is implemented using a fully connected attention layer that assigns importance scores to each time step in the sequence. Given an input sequence x, the attention scores αt are computed as follows:
 
-<p align="center">  
-<img src="https://latex.codecogs.com/png.latex?\alpha_t=\text{softmax}(\mathbf{W}_a x_t)" />  
-</p>  
+```md
+α_t = softmax(W_a * x_t)
+```
 
 These scores are then applied to the **LSTM outputs** to compute a weighted sum:  
 
-<p align="center">  
-<img src="https://latex.codecogs.com/png.latex?z=\sum_{t} \alpha_t x_t" />  
-</p>  
+```md
+z = ∑(α_t * x_t)
+```
 
-### Verification scheme
+---
+
+### 📌 Verification Scheme  
 
 The Euclidean distance between keystroke embeddings is calculated as:  
 
-<p align="center">  
-<img src="https://latex.codecogs.com/png.latex?d=|| f(x_i) - f(x_j) ||_2" />  
-</p>  
+```md
+d = || f(x_i) - f(x_j) ||_2
+```
 
-where a **lower distance** indicates a **higher similarity**. A threshold **\( t \)** is applied for classification:  
+where a **lower distance** indicates a **higher similarity**. A threshold **t** is applied for classification:  
 
 - If **\( d < t \)** → **Genuine User**  
-- If **\( d \geq t \)** → **Impostor**  
+- If **\( d ≥ t \)** → **Impostor**  
