@@ -1,4 +1,5 @@
 # TypePlus: A Deep Learning Architecture for Keystroke Authentication with Loss Function Evaluation
+This repository provides the implementation and dataset for the paper "TypePlus: A Deep Learning Architecture for Keystroke Authentication with Loss Function Evaluation", submitted to the 2nd International Conference on Intelligent Systems, Blockchain, and Communication Technologies (ISBCom) 2025.
 
 ## Table of Contents
 1. [Dataset](#dataset-overview)
